@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Hue Strip</name>
+  <id>ktx_huestrip</id>
+  <label>KTX Hue Strip</label>
+  <param name="size_x" type="float" precision="2" gui-text="Size x">0.5</param>
+  <param name="size_y" type="float" precision="2" gui-text="Size y">4</param>
+  <param name="fillet_radius" type="float" precision="2" gui-text="Fillet Radius">0.1</param>
+  <param name="offset_gap" type="bool" gui-text="Offset (on) = Gap (off)">False</param>
+  <param name="offset_x" type="float" precision="2" gui-text="Offset/Gap x">0.55</param>
+  <param name="satu" type="int" min="0" max="255" gui-text="Saturation">128</param>
+  <param name="valu" type="int" min="0" max="255" gui-text="Lightness">128</param>
+  <param name="incr" type="int" min="1" max="255" gui-text="Increment">1</param>
+
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Generators"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_huestrip.py</command>
+  </script>
+</inkscape-extension>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Scrabble Tiles New</name>
+  <id>ktx_scrabble_tiles_new</id>
+  <label>KTX Scrabble Tiles New</label>
+
+  <param name="start_x" type="float" min="-2000.0" max="2000.0" gui-text="Start at X (mm):">0.0</param>
+  <param name="start_y" type="float" min="-2000.0" max="2000.0" gui-text="Start at Y (mm):">0.0</param>
+
+  <param name="text" type="string" appearance="multiline"  gui-text="Text:" gui-description="Text">Hello World</param>
+  <param name="text_font_size" type="float" min="5.0" max="100.0" gui-text="Text Height (mm):">11.0</param>
+  <param name="text_font_family" type="string" gui-text="Text Font Family:">Interstate</param>
+  <param name="text_font_bold" type="bool" gui-text="Text Font Bold:">false</param>
+  <param name="char_offset" type="float" min="-200.0" max="200.0" gui-text="Character Vertical Offset (mm):">-0.350</param>
+
+  <param name="tile_size" type="float" min="5.0" max="200.0" gui-text="Tile Size (mm):">15.0</param>
+  <param name="tile_cornerradius" type="float" min="0.0" max="100.0" gui-text="Tile Corner Radius (mm):">2.0</param>
+
+  <param name="enable_dots" type="bool" gui-text="Enable Dots:">false</param>
+  <param name="dot_diameter" type="float" min="0.1" max="10.0" gui-text="Dot Diameter:">1.0</param>
+
+  <param name="enable_scrabblevalue" type="bool" gui-text="Enable Scrabble Value:">false</param>
+  <param name="scrabblevalue_font_size" type="float" min="0.1" max="100.0" gui-text="Value Height (mm):">3.0</param>
+  <param name="scrabblevalue_font_family" type="string" gui-text="Value Font Family:">Arial</param>
+  <param name="scrabblevalue_font_bold" type="bool" gui-text="Value Font Bold:">Arial</param>
+  <param name="scrabblevalue_offset" type="float" min="-100.0" max="100.0" gui-text="Value Offset (mm):">0.0</param>
+
+  <param name="enable_merge" type="bool" gui-text="Merge:">false</param>
+
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Generators"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_scrabble_tiles_new.py</command>
+  </script>
+</inkscape-extension>

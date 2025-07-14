@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Change Label to Fill Color Name</name>
+  <id>ktx_change2colorname</id>
+  <label>KTX Change Label to Fill Color Name</label>
+  <param name="append" type="bool" gui-text="Append to Label:">false</param>
+
+
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Color"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_change_2_colorname.py</command>
+  </script>
+</inkscape-extension>

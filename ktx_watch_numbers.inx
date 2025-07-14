@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Watch Numbers</name>
+  <id>ktx_watch_numbers</id>
+  <label>KTX Watch Numbers</label>
+
+  <param name="start_x" type="float" min="-2000.0" max="2000.0" gui-text="Start at X (mm):">0.0</param>
+  <param name="start_y" type="float" min="-2000.0" max="2000.0" gui-text="Start at Y (mm):">297.0</param>
+
+  <param name="radius" type="float" min="0.0" max="2000.0" gui-text="Radius (mm):">40.0</param>
+
+  <param name="num_items" type="int" appearance="full" min="0" max="400" indent="0" gui-text="Number of Items:">12</param>
+  <param name="start_angle" type="float" appearance="full" min="-360.0" max="360.0" indent="0" gui-text="Start Angle:">-90.0</param>
+  <param name="start_number" type="int" appearance="full" min="0" max="100" indent="0" gui-text="Start Number:">1</param>
+  <param name="inc_number" type="int" appearance="full" min="1" max="100" indent="0" gui-text="Incement Number By:">1</param>
+  <param name="inc_angle" type="float" appearance="full" min="0.0" max="120.0" indent="0" gui-text="Incement Angle By:">30.0</param>
+  <param name="rotate" type="bool" gui-text="Rotate Numbers:">false</param>
+  <param name="readable" type="bool" gui-text="Readable Rotation:">false</param>
+  <param name="add_angle" type="float" min="-360.0" max="360.0" gui-text="Add Angle:">0.0</param>
+  <param name="text_font_size" type="float" min="0.01" max="100.0" gui-text="Text Height:">15.0</param>
+  <param name="text_font_family" type="string" gui-text="Text Font Family:">Interstate</param>
+  <param name="text_font_bold" type="bool" gui-text="Text Font Bold:">false</param>
+
+  <param name="mark_center" type="bool" gui-text="Mark Center:">false</param>
+ 
+  <param name="enable_merge" type="bool" gui-text="Merge:">false</param>
+
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Generators"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_watch_numbers.py</command>
+  </script>
+</inkscape-extension>

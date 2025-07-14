@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Similar Fill Color</name>
+  <id>ktx_similar_fill</id>
+  <label>KTX Similar Fill Color</label>
+  <param name="target_color" type="color" gui-text="Target Fill Color">#ff0000</param>
+  <param name="threshold" type="int" min="0" max="442" gui-text="Color Similarity Threshold">10</param>
+  <param name="live_preview" type="bool" gui-text="Hide other">false</param>
+  
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Color"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_similar_fill.py</command>
+  </script>
+</inkscape-extension>

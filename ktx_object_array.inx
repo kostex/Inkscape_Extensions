@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Object Array</name>
+  <id>ktx_object_array</id>
+  <label>KTX Object Array</label>
+
+  <param name="offset_x" type="float" min="0.0" max="2000.0" gui-text="Offset X (mm):">40.0</param>
+  <param name="offset_y" type="float" min="0.0" max="2000.0" gui-text="Offset Y (mm):">40.0</param>
+
+  <param name="num_x" type="int" min="1" max="2000" gui-text="Num X:">4</param>
+  <param name="num_y" type="int" min="1" max="2000" gui-text="Num Y:">4</param>
+  
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Generators"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_object_array.py</command>
+  </script>
+</inkscape-extension>

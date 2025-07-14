@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Text Array</name>
+  <id>ktx_text_array</id>
+  <label>KTX Text Array</label>
+
+  <param name="start_x" type="float" min="-2000.0" max="2000.0" gui-text="Start at X (mm):">0.0</param>
+  <param name="start_y" type="float" min="-2000.0" max="2000.0" gui-text="Start at Y (mm):">297.0</param>
+
+  <param name="offset_x" type="float" min="0.0" max="2000.0" gui-text="Offset X (mm):">40.0</param>
+  <param name="offset_y" type="float" min="0.0" max="2000.0" gui-text="Offset Y (mm):">40.0</param>
+
+  <param name="text" type="string" appearance="multiline"  gui-text="Text:" gui-description="Text">Hello\nWorld</param>
+  <param name="text_font_size" type="float" min="0.01" max="100.0" gui-text="Text Height:">15.0</param>
+  <param name="text_font_family" type="string" gui-text="Text Font Family:">Interstate</param>
+  <param name="text_font_bold" type="bool" gui-text="Text Font Bold:">false</param>
+ 
+  <param name="enable_merge" type="bool" gui-text="Merge:">false</param>
+
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Generators"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_text_array.py</command>
+  </script>
+</inkscape-extension>

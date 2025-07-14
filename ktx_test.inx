@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Test</name>
+  <id>ktx_test</id>
+  <label>KTX Test</label>
+  <param name="satu" type="int" min="0" max = "255" gui-text="Saturation">255</param>
+  <param name="valu" type="int" min="0" max="255" gui-text="Value">128</param>
+  
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_test.py</command>
+  </script>
+</inkscape-extension>

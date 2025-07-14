@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Similar Fill Color Auto</name>
+  <id>ktx_similar_fill_plus</id>
+  <label>KTX Similar Fill Color Auto</label>
+  <param name="threshold" type="int" min="1" max="255" gui-text="Color Similarity Threshold">10</param>
+  <param name="combine" type="bool" gui-text="Combine Similar Color">false</param>
+  
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Color"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_similar_fill_plus.py</command>
+  </script>
+</inkscape-extension>

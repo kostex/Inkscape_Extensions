@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Combine Same Fill Colors</name>
+  <id>ktx_combine_same_colors</id>
+  <label>KTX Combine Same Fill Colors</label>
+  <param name="group_only" type="bool" gui-text="Only Group Together">false</param>
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Color"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_combine_same_colors.py</command>
+  </script>
+</inkscape-extension>

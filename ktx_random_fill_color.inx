@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>KTX Random Fill Color</name>
+  <id>ktx_random_fill_color</id>
+  <label>KTX Random Fill Color</label>
+  <param name="satu" type="int" min="0" max = "255" gui-text="Saturation">255</param>
+  <param name="valu" type="int" min="0" max="255" gui-text="Value">128</param>
+  
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Koelooptiemanna">
+       <submenu name="Color"/>
+      </submenu>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">ktx_random_fill_color.py</command>
+  </script>
+</inkscape-extension>
