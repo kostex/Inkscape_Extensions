@@ -20,13 +20,12 @@ class KTX_Sort_By_Y(inkex.EffectExtension):
         looper = svg.selection if number_of_selected_objects > 0 else document
         for elem in looper:
             tag = elem.tag.split('}')[-1]
-            if tag in ['svg', 'defs','g']:
+            if tag in ['svg', 'defs', 'g']:
                continue
             posy = float(elem.get('y'))
             elems.append([posy,elem])
             svg.remove(elem)
         elems = sorted(elems, key=lambda x:x[0], reverse=True)
-        # self.msg(f"{elems}")
         for element in elems:
             svg.append(element[1])
 

@@ -135,19 +135,20 @@ class KTX_Similar_Fill_Plus(inkex.EffectExtension):
         matched = []
         cname = NTC()
 
+        if len(svg.selection) == 0:
+            looper = document
+        else:
+            looper = svg.selection
 
-        for element in document:
+        for element in looper:
             tag = element.tag.split('}')[-1]
-            if tag in ['svg', 'defs']:
+            if tag in ['svg', 'defs', 'g']:
                 continue
             id_attr = element.get('id', 'no-id')
-            style = element.style if hasattr(element, 'style') else 'no-style'
             attribs = dict(element.attrib)
             fill_string = element.style['fill']
             if fill_string[0] != '#':
                 continue
-#            fill_color_hue = Color(fill_string).hue
-#            fill_color_grid_number = int(360/255 * ((fill_color_hue//threshold)*threshold))
             fill_color_hue = cname.hsl(fill_string)[0]
             fill_color_grid_number = (fill_color_hue//threshold)*threshold
             new = True
@@ -162,7 +163,6 @@ class KTX_Similar_Fill_Plus(inkex.EffectExtension):
         if combine:
             action_chunks = []
             for a in matched:
-#                self.msg(f"{a}")
                 for elem in a[1:]:
                     action_chunks.extend(['select-by-id:' + elem[1]])
                 action_chunks.extend(['object-to-path'])
@@ -174,7 +174,6 @@ class KTX_Similar_Fill_Plus(inkex.EffectExtension):
                                   'export-do',
                                   'quit-immediate'])
             action_str = ';'.join(action_chunks)
-#           self.msg(f"{action_str}")
             run_inkscape_and_replace_svg(svg, action_str)
             svg = self.document.getroot()
             document = self.svg.xpath('//svg:*', namespaces=inkex.NSS)

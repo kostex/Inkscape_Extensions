@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import inkex
 from lxml import etree
 from math import floor
@@ -17,6 +18,7 @@ class KTX_RandomFillColor(inkex.EffectExtension):
         satu = self.options.satu
         valu = self.options.valu
         hue = 0
+
         if number_of_selected_objects > 0:
             incr = floor(255/number_of_selected_objects)
             for elem in svg.selection:

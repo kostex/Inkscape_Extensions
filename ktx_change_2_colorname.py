@@ -108,7 +108,7 @@ class KTX_Change_to_ColorName(inkex.EffectExtension):
 
         for element in looper:
             tag = element.tag.split('}')[-1]
-            if tag in ['svg', 'defs']:
+            if tag in ['svg', 'defs','g']:
                 continue
             fill = str(element.style.get('fill'))
             if fill[0] != '#':
