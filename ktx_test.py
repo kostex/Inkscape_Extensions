@@ -13,22 +13,12 @@ class KTX_Test(inkex.EffectExtension):
     def effect(self):
         svg = self.document.getroot()
         document = self.svg.xpath('//svg:*', namespaces=inkex.NSS)
-        number_of_selected_objects = len(svg.selection)
-        vb = svg.get('viewBox').split(' ')
-        xh = float(vb[2])/2.0
-        elems = []
-        looper = svg.selection if number_of_selected_objects > 0 else document
+        looper = svg.selection if len(svg.selection) > 0 else document
         for elem in looper:
             tag = elem.tag.split('}')[-1]
             if tag in ['svg', 'defs','g']:
                continue
-            posy = float(elem.get('y'))
-            elems.append([posy,elem])
-            svg.remove(elem)
-        elems = sorted(elems, key=lambda x:x[0], reverse=True)
-        self.msg(f"{elems}")
-        for element in elems:
-            svg.append(element[1])
+            self.msg(f"{elem.style.get('fill')}")
 
 if __name__ == "__main__":
     KTX_Test().run()

@@ -24,7 +24,7 @@ class KTX_Sort_By_Y(inkex.EffectExtension):
                continue
             posy = float(elem.get('y'))
             elems.append([posy,elem])
-            svg.remove(elem)
+            elem.delete()
         elems = sorted(elems, key=lambda x:x[0], reverse=True)
         for element in elems:
             svg.append(element[1])

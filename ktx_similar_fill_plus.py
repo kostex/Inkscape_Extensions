@@ -145,8 +145,7 @@ class KTX_Similar_Fill_Plus(inkex.EffectExtension):
             if tag in ['svg', 'defs', 'g']:
                 continue
             id_attr = element.get('id', 'no-id')
-            attribs = dict(element.attrib)
-            fill_string = element.style['fill']
+            fill_string = element.style.get('fill')
             if fill_string[0] != '#':
                 continue
             fill_color_hue = cname.hsl(fill_string)[0]
@@ -179,10 +178,9 @@ class KTX_Similar_Fill_Plus(inkex.EffectExtension):
             document = self.svg.xpath('//svg:*', namespaces=inkex.NSS)
             for element in document:
                 tag = element.tag.split('}')[-1]
-                if tag in ['svg', 'defs']:
+                if tag in ['svg', 'defs', 'g']:
                     continue
-                style = element.style if hasattr(element, 'style') else 'no-style'
-                fill_string = element.style['fill']
+                fill_string = element.style.get('fill')
                 if fill_string[0] != '#':
                     continue
                 fill_color_name = cname.name(fill_string)
