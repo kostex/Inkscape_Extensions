@@ -12,7 +12,7 @@ class KTX_RandomFillColor(inkex.EffectExtension):
         pars.add_argument("--valu", type=int, help="Value")
 
     def effect(self):
-        svg = self.document.getroot()        
+        svg = self.document.getroot()
         document = self.svg.xpath('//svg:*', namespaces=inkex.NSS)
         number_of_selected_objects = len(svg.selection)
         satu = self.options.satu

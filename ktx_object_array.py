@@ -11,6 +11,7 @@ import inkex
 from inkex import etree
 from inkex import transforms
 from math import floor
+from inkex import Transform
 
 class KTXObjectArray(inkex.EffectExtension):
     def add_arguments(self, pars):
@@ -28,18 +29,26 @@ class KTXObjectArray(inkex.EffectExtension):
         num_x = self.options.num_x
         num_y = self.options.num_y
 
-        for node in self.svg.selection:
-            if node is not None:
-                pos_x = node.get('x')
-                pos_y = node.get('y')
-                for i in range(num_x):
-                    for j in range(num_y):
-                        if i == 0 and j == 0:
-                            continue  # Skip original object
-                        new_node = etree.Element(node.tag, node.attrib)
-                        new_node.set("x", f"{float(pos_x)+(i * offset_x)}")
-                        new_node.set("y", f"{float(pos_y)+(j * offset_y)}")
-                        node.getparent().append(new_node)
+        original_selection = list(self.svg.selected.values())
+
+        for original_element in original_selection:
+            original_transform_matrix = original_element.transform.matrix
+
+            for i in range(num_x):
+                for j in range(num_y):
+                    if i == 0 and j == 0:
+                        continue # Skip the original object itself
+
+                    duplicate_element = inkex.etree.fromstring(inkex.etree.tostring(original_element))
+                    current_transform_str = duplicate_element.get('transform')
+                    if current_transform_str:
+                        current_transform = Transform(current_transform_str)
+                    else:
+                        current_transform = Transform()
+                    translation_transform = Transform(f"translate({i * offset_x},{j * offset_y})")
+                    new_transform = current_transform @ translation_transform
+                    duplicate_element.set('transform', str(new_transform))
+                    original_element.getparent().append(duplicate_element)
 
 if __name__ == "__main__":
     KTXObjectArray().run()
